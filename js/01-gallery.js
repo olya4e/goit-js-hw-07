@@ -29,11 +29,11 @@ const onGalleryItemClick = event => {
   }
   const largeImg = target.dataset.source;
 
-  const onPressEsc = event => {
+  function onPressEsc(event) {
     if (event.code === 'Escape') {
       modal.close();
     }
-  };
+  }
 
   const modal = basicLightbox.create(`<img src="${largeImg}"> width="1280" height="auto"`, {
     onShow: () => {
@@ -44,6 +44,12 @@ const onGalleryItemClick = event => {
     },
   });
   modal.show();
+
+  function onPressEsc(event) {
+    if (event.code === 'Escape') {
+      modal.close();
+    }
+  }
 };
 
 galleryBoxEl.addEventListener('click', onGalleryItemClick);
